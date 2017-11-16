@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="dafeiji.css">
+		
+		<script src="common.js"></script>
+		<script src="engine.js"></script>
+		<script src="myPlane.js"></script>
+		<script src="bullet.js"></script>
+		<script src="enemy.js"></script>
+		
+		<script>
+			onload = function(){
+	
+				let list = document.getElementById("list");
+				let ali = list.getElementsByTagName("li");
+				
+				for (let i=0; i<ali.length; i++){
+					ali[i].onclick = function(){
+						
+						//移除list节点
+						list.parentNode.removeChild(list);
+						
+						//子弹发射频率
+						myPlane.fireInterval = this.value-0;
+						
+						//开始游戏
+						engine.init().start(); 
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<ul id="list">
+				<li value="1000">地狱</li>
+				<li value="600">困难</li>
+				<li value="300">简单</li>
+				<li value="100">白痴</li>
+			</ul>
+		</div>
+	</body>
+</html>
